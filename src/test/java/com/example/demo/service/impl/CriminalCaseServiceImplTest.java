@@ -38,4 +38,25 @@ private JdbcDetectiveRepo jdbcDetectiveRepo;
     void findByType() {
         assertEquals(1,criminalCaseService.findByType(CaseType.UNCATEGORIZED).size());
     }
+
+    @Test
+    void testFindByLeadInvestigator() {
+        Optional<Detective> detective= jdbcDetectiveRepo.findById(1L);
+        assertEquals(1, criminalCaseService.findByLeadInvestigator(detective.get()).size());
+    }
+
+    @Test
+    void testFindByNumber() {
+        assertEquals(1, criminalCaseService.findByNumber("1").get().getNumber());
+    }
+
+    @Test
+    void testFindByStatus() {
+        assertEquals(2,criminalCaseService.findByStatus(CaseStatus.SUBMITTED));
+    }
+
+    @Test
+    void testFindByType() {
+        assertEquals(0,criminalCaseService.findByType(CaseType.UNCATEGORIZED).size());
+    }
 }

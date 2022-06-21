@@ -13,7 +13,7 @@ public class DetectiveRowMapper implements RowMapper<Detective> {
     @Override
     public Detective mapRow(ResultSet rs, int rowNum) throws SQLException {
         long id = rs.getLong("ID");
-        String badgeNumber = rs.getString("BADGE_NUMBER");
+        String badgeNumber = rs.getString("badgeNumber");
         String rank = rs.getString("RANK");
         boolean armed = rs.getBoolean("ARMED");
         String status = rs.getString("STATUS");

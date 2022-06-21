@@ -13,4 +13,9 @@ class JdbcDetectiveRepoTest {
     @Test
     void findByBadgeNumber() {
     }
+
+    @Test
+    void findAll() {
+        assertEquals(1, jdbcDetectiveRepo.findAll().size());
+    }
 }

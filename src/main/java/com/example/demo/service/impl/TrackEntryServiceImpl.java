@@ -6,10 +6,12 @@ import com.example.demo.model.TrackEntry;
 import com.example.demo.repo.jpa.TrackEntryRepo;
 import com.example.demo.service.TrackEntryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+@Service
 
 public class TrackEntryServiceImpl implements TrackEntryService {
     @Autowired

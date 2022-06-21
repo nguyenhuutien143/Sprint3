@@ -29,13 +29,13 @@ public class JdbcDetectiveRepo implements DetectiveRepo {
 
     @Override
     public List<Detective> findAll() {
-        String sql = "select ID, BADGE_NUMBER, RANK, ARMED, STATUS,PERSON_ID from DETECTIVE";
+        String sql = "select ID, badgeNumber, RANK, ARMED, STATUS,PERSON_ID from DETECTIVE";
         return jdbcTemplate.query(sql, rowMapper);
     }
 
     @Override
     public Optional<Detective> findByBadgeNumber(String badgeNumber) {
-        String sql = "select ID, BADGE_NUMBER, RANK, ARMED, STATUS,PERSON_ID from DETECTIVE where BADGE_NUMBER= ?";
+        String sql = "select ID, badgeNumber, RANK, ARMED, STATUS,PERSON_ID from DETECTIVE where badgeNumber= ?";
         Detective detective = jdbcTemplate.queryForObject(sql, rowMapper, badgeNumber);
         return detective == null ? Optional.empty() : Optional.of(detective);
     }
